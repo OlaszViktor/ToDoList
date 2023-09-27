@@ -25,5 +25,5 @@ A `tkinter` grafikus felhasználói felületet, `sqlite3` adatbázist és a `tkc
 - `TaskManager`: Osztály a feladatok kezeléséhez, amely tartalmazza az adatbázisműveleteket, mint például a feladatok hozzáadása és eltávolítása.
 
 ## Használat
-Futtassa a `main.py` fájlt, és használja a grafikus felhasználói felületet a feladatok kezeléséhez. 
+Futtassa a `Beadando_Olasz_Viktor_Ferenc_CX773M.py` fájlt, és használja a grafikus felhasználói felületet a feladatok kezeléséhez. 
 Adhat hozzá új feladatokat, eltávolíthatja a meglévőket, mentheti a feladatokat egy fájlba, betöltheti a feladatokat egy fájlból és kiválaszthat egy véletlenszerű feladatot.
