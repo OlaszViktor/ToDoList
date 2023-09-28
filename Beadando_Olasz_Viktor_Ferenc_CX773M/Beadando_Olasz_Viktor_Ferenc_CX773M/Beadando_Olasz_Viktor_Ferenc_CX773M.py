@@ -6,6 +6,8 @@ import os
 from tkcalendar import Calendar
 
 # Egyéni osztály a feladatok kezeléséhez
+
+
 class TaskManager:
     def __init__(self, db_name):
         self.conn = sqlite3.connect(db_name)
@@ -33,6 +35,8 @@ class TaskManager:
         self.conn.close()
 
 # GUI létrehozása a tkinter segítségével
+
+
 root = tk.Tk()
 root.title("Feladatlista")
 
@@ -40,6 +44,8 @@ root.title("Feladatlista")
 task_manager = TaskManager("tasks.db")
 
 # GUI elemek létrehozása
+
+
 def add_task():
     task = task_entry.get()
     priority = priority_combobox.get()
@@ -49,6 +55,7 @@ def add_task():
         task_list.insert(tk.END, f"{date} - {priority}: {task}")
         task_entry.delete(0, tk.END)
 
+
 def remove_task():
     selected_task_index = task_list.curselection()
     if selected_task_index:
@@ -56,6 +63,7 @@ def remove_task():
         task_name = task.split(": ")[1]
         task_manager.remove_task(task_name)
         task_list.delete(selected_task_index)
+
 
 def save_tasks_to_file():
     tasks = task_list.get(0, tk.END)
@@ -65,6 +73,7 @@ def save_tasks_to_file():
         for task in tasks:
             file.write(task + '\n')
     messagebox.showinfo("Info", "Feladatok elmentve fájlba!")
+
 
 def load_tasks_from_file():
     if os.path.exists('tasks/tasks.txt'):
@@ -79,6 +88,7 @@ def load_tasks_from_file():
     else:
         messagebox.showwarning("Figyelem", "A feladatok fájlja nem található!")
 
+
 def select_random_task():
     tasks = task_list.get(0, tk.END)
     if tasks:
@@ -87,7 +97,9 @@ def select_random_task():
     else:
         messagebox.showwarning("Figyelem", "Nincsenek elérhető feladatok!")
 
+
 def befejezve():
+
     kivalasztott_feladat_index = task_list.curselection()
     if kivalasztott_feladat_index:
         feladat = task_list.get(kivalasztott_feladat_index)
@@ -97,6 +109,8 @@ def befejezve():
         messagebox.showwarning("Figyelem", "Nincs kiválasztva feladat!")
 
 # GUI elemek hozzáadása és konfigurálása
+
+
 cal_label = tk.Label(root, text="Válasszon dátumot:", font=("Arial", 12))
 cal_label.pack(padx=20, pady=5, anchor=tk.W)
 cal = Calendar(root, selectmode="day", year=2023, month=9, day=27, font=("Arial", 12))
